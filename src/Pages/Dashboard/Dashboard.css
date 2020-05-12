@@ -66,16 +66,21 @@
 }
 
 #user_item_list{
-    border: 2px solid red;
     width: 30%;
     display: flex;
     flex-direction: column;
     overflow-x: scroll;
+    background-color: rgb(243, 220, 170);
 }
 
 #list_header{
-    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2vh;
+    height: 8vh;
+    color: rgb(214,40,139);
+    font-size: 24px;
     text-align: center;
-    vertical-align: middle;
-    border-bottom: 2px solid black;
+    border-bottom: 0.5px solid rgba(0,0,0,0.5);
 }

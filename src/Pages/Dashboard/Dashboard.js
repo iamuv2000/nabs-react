@@ -7,10 +7,10 @@ import Item from './component/Item/Item';
 import UserItem from './component/UserItem/UserItem';
 import AddItem from './component/AddItem/AddItem';
 
-
 //Import assets
 import MessageIcon from '../../assets/chat_icon.png';
 import LocationIcon from '../../assets/location_icon.png';
+import AddButton from '../../assets/add_item.png';
 
 class Dashboard extends React.Component{
 
@@ -39,7 +39,7 @@ class Dashboard extends React.Component{
                     <div id = "user_item_list">
                         <table>
                             <th id="list_header">
-                                MY LIST <span onClick={()=>this.setState({showAddItem: true})}>+</span>
+                                MY LIST <span onClick={()=>this.setState({showAddItem: true})}><img src={AddButton} alt="add button" height="30px" width="30px"/></span>
                             </th>
                             <tbody>
                                 <UserItem />

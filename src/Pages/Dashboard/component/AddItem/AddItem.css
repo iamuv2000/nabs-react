@@ -17,7 +17,7 @@
     z-index: 999;
     transform: translate(-50%, -50%);
     width:40%;
-    border: 2px solid red;
+    border-radius: 20px;
     text-align: center;
     background-color: white;
     height: 80vh;
@@ -28,6 +28,7 @@
     margin-left: 90%;
     margin-top: -30vh;
     margin-right: 2vw;
+    cursor: pointer;
 }
 
 #image_content{
@@ -36,6 +37,7 @@
     margin-left: 5vw;
     margin-top: 10vh;
     background-color: black;
+    border-radius: 10px;
 }
 
 #add_content{
@@ -50,4 +52,17 @@
 #add_item_description{
     height: 40vh;
     width: 45vw;
+    resize: none;
+    border-radius: 10px;
+    font-size: x-large;
+    padding: 15px;
+    box-sizing: border-box;
+    border: none;
+    background-color: rgb(242,242,242);
+    color: rgb(248,148,0);
+}
+
+
+#add_button{
+    margin-left: 80%;
 }

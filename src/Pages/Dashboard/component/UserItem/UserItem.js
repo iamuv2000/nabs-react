@@ -1,5 +1,6 @@
 import React from 'react';
-import './UserItem.css'
+import './UserItem.css';
+import DELETE from '../../../../assets/icons8-delete-bin-64.png';
 
 const UserItem = () => {
     return(
@@ -9,7 +10,7 @@ const UserItem = () => {
                     <div id="img_content"></div>
                     <h2 id="user_item_label">Samsung S10</h2>
                     <div id="interaction_icon_container">
-                        DELETE
+                        <img src={DELETE} alt="delete" height="20px"/>
                     </div>
                 </div>
             </td>
