@@ -1,0 +1,30 @@
+#item{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    border: 2px solid blue;
+    margin-top: 2vh;
+    padding: 10px;
+}
+#interact_icons{
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    white-space: nowrap;
+    margin-top: 100%;
+}
+#item_content{
+    margin-left: 2vw;
+    margin-top: -3vh;
+    width: 50vw;
+}
+#name{
+    margin: 5px;
+   margin-top: 5vh;
+   margin-right: 3vw;
+}
+#img_placeholder{
+    height: 100px;
+    width: 150px;
+    background-color: black;
+}
