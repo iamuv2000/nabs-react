@@ -14,19 +14,40 @@
 }
 
 #location_button{
-    width: 10vw;
+    width: auto;
+    padding-right: 10px;
     height: 5vh;
+    border:none;
+    background-color: rgb(214,40,139);
+    border-radius: 12px;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
 }
-
+#logout_button{
+    width: 10vw;
+    padding-right: 10px;
+    height: 5vh;
+    border:none;
+    background-color: rgb(214,40,139);
+    border-radius: 12px;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+}
+#location_label{
+    margin-left: 1vw;
+}
 #content_screen{
     display: flex;
     flex-direction: row;
-    margin-top: 8vh;
+    margin-top: 4vh;
     height: 100vh;
 }
 
 #item_list{
-    border: 2px solid black;
     width: 70%;
     overflow-y: scroll;
     background-color: whitesmoke;
@@ -35,6 +56,14 @@
     align-items: center;
 }
 
+#message_button{
+    border:none;
+    background-color: rgb(214,40,139);
+    border-radius: 12px;
+    height: 5vh;
+    width: 3vw;
+    padding: 1px;
+}
 
 #user_item_list{
     border: 2px solid red;
