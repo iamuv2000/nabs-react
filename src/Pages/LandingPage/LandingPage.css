@@ -7,7 +7,10 @@
     width: 100vw;
 }
 
-
+a{
+    text-decoration: none;
+    font-weight: 500;
+}
 button{
     cursor: pointer;
 }
