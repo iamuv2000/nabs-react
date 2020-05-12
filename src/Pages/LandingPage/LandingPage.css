@@ -7,6 +7,19 @@
     width: 100vw;
 }
 
+
+button{
+    cursor: pointer;
+}
+
+button:focus{
+    outline: none;
+}
+
+input:focus{
+    outline: none;
+}
+
 #logo_container_left{
     padding-top: 15px;
     padding-left: 20px;

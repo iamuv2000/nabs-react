@@ -5,6 +5,10 @@
     margin-top: 2px;
     margin-left: 2px;
 }
+#user_item_container{
+    width: 100%;
+}
+
 
 #user_item{
     margin-left: 2px;

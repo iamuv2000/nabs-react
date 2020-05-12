@@ -1,6 +1,10 @@
 import React from 'react';
 import './Signup.css';
 import NABS from '../../assets/nabs.png';
+import { Button } from '@material-ui/core';
+import googleIcon from '../../assets/icons8-google.svg';
+
+
 
 class Signup extends React.Component{
     render(){
@@ -11,13 +15,20 @@ class Signup extends React.Component{
                 </div>
                 <div id="signup_page_content">
                     <div id="signup_page_form">
-                        <h1>Sign up</h1>
-                        <input type = "email" placeholder="Email"/>
-                        <input type = "password" placeholder="Password"/>
-                        <input type = "password" placeholder="Confrim password"/>
+                        <h1 id="signup_heading">Sign up</h1>
+                        <input type = "email" placeholder="Email" className="signup_input"/>
+                        <input type = "password" placeholder="Password" className="signup_input"/>
+                        <input type = "password" placeholder="Confrim password" className="signup_input"/>
+                        <div id="signup_forgot_password_container">
+                            <a href="#" id="signup_forgot_password">Forgot password?</a>
+                        </div>
                         <br />
-                        <a href="#">Forgot password?</a>
-                        <button>Sign up</button>
+                        <br />
+                        <button id="signup_page_signup_button">Sign up</button>
+                        <Button variant="outlined" className="googleButton" style={{borderWidth:2, borderColor:"black", borderRadius:5}}>
+                            <img src={googleIcon} alt="gicon" className="gicon" height="24" width="24"/>
+                            Continue with Google
+                        </Button> 
                         <div id="auth_or">
                             <hr class="line"></hr>
                             <strong>OR</strong>
@@ -25,7 +36,7 @@ class Signup extends React.Component{
                         </div>   
                         <div id="auth_options_container">
                             <a href="/" className="auth_options">Home</a>
-                            <strong>OR</strong>
+                            <strong>|</strong>
                             <a href="/login" className="auth_options">Login</a>
                     </div>          
                     </div>

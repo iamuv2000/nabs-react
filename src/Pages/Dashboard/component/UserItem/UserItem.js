@@ -4,7 +4,7 @@ import './UserItem.css'
 const UserItem = () => {
     return(
         <tr>
-            <td id="user_item_container">
+            <td>
                 <div id="user_item">
                     <div id="img_content"></div>
                     <h2 id="user_item_label">Samsung S10</h2>
