@@ -1,6 +1,7 @@
 import React from 'react';
 import './Dashboard.css';
 import NABS from '../../assets/nabs.png';
+import cookie from 'react-cookies';
 
 //Component Imports
 import Item from './component/Item/Item';
@@ -11,17 +12,47 @@ import AddItem from './component/AddItem/AddItem';
 import MessageIcon from '../../assets/chat_icon.png';
 import LocationIcon from '../../assets/location_icon.png';
 import AddButton from '../../assets/add_item.png';
-
+import dotenv from 'dotenv'
+dotenv.config()
 class Dashboard extends React.Component{
 
     constructor(){
         super();
         this.state={
-            showAddItem: false
+            showAddItem: false,
+            items: [{
+                file: "",
+                itemDesc: "",
+                itemId: "",
+                itemName: "",
+                location: ""
+            }]
         };
     }
     
+    componentWillMount() {
+        fetch(`${process.env.REACT_APP_URL}/user/allItems`,{
+            method: "post",
+            headers: {
+                'Content-type':'application/json',
+            },
+            body: JSON.stringify({
+                location : 'Pune'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            this.setState({
+                items : data.payload.data
+            })
+            console.log(this.state.items)
+        })
+    }
+
+
     render(){
+
+
         return(
             <div id="dashboard_page">
                 {this.state.showAddItem && <AddItem closeModal = {()=>this.setState({showAddItem:false})}/>}
@@ -34,7 +65,14 @@ class Dashboard extends React.Component{
                 
                 <div id= "content_screen">
                     <div id = "item_list">
-                        <Item />
+                        {
+                            this.state.items.map(item =>
+                                <Item 
+                                    itemName = {item.itemName}
+                                    itemDesc = {item.itemDesc}
+                                    file = {item.file}
+                                />)
+                        }
                     </div>
                     <div id = "user_item_list">
                         <table>

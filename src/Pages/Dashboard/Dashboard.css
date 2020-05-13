@@ -1,7 +1,7 @@
 #dashboard_page{
     background-color: rgb(236, 199, 95);
     height: 100vh;
-    overflow-y: hidden;
+    overflow-y: scroll;
 }
 
 #logo_container_nav{
@@ -45,15 +45,18 @@
     flex-direction: row;
     margin-top: 4vh;
     height: 100vh;
+    overflow-y: scroll;
 }
 
 #item_list{
     width: 70%;
-    overflow-y: scroll;
+    overflow: scroll;
     background-color: whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
+
 }
 
 #message_button{
@@ -71,6 +74,7 @@
     flex-direction: column;
     overflow-x: scroll;
     background-color: rgb(243, 220, 170);
+    overflow: scroll;
 }
 
 #list_header{
