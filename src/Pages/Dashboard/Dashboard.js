@@ -7,6 +7,7 @@ import cookie from 'react-cookies';
 import Item from './component/Item/Item';
 import UserItem from './component/UserItem/UserItem';
 import AddItem from './component/AddItem/AddItem';
+import SendMessage from './component/SendMessage/SendMessage';
 
 //Import assets
 import MessageIcon from '../../assets/chat_icon.png';
@@ -20,12 +21,20 @@ class Dashboard extends React.Component{
         super();
         this.state={
             showAddItem: false,
+            showSendMessage: false,
             items: [{
                 file: "",
                 itemDesc: "",
                 itemId: "",
                 itemName: "",
                 location: ""
+            }],
+            userItem: [{
+                file: "",
+                itemDesc: "",
+                itemId: "",
+                itemName: "",
+                location: ""  
             }]
         };
     }
@@ -45,7 +54,22 @@ class Dashboard extends React.Component{
             this.setState({
                 items : data.payload.data
             })
-            console.log(this.state.items)
+            fetch(`${process.env.REACT_APP_URL}/user/myItems`,{
+                method: "post",
+                headers: {
+                    'Content-type':'application/json',
+                },
+                body: JSON.stringify({
+                    uid : cookie.load('NABS').uid
+                })
+            })
+            .then(response => response.json())
+            .then(userData => {
+                this.setState({
+                    userItem : userData.payload.data
+                })
+                console.log(this.state.userItem)
+            })
         })
     }
 
@@ -68,6 +92,7 @@ class Dashboard extends React.Component{
                         {
                             this.state.items.map(item =>
                                 <Item 
+                                    itemId = {item.itemId}
                                     itemName = {item.itemName}
                                     itemDesc = {item.itemDesc}
                                     file = {item.file}
@@ -80,7 +105,14 @@ class Dashboard extends React.Component{
                                 MY LIST <span onClick={()=>this.setState({showAddItem: true})}><img src={AddButton} alt="add button" height="30px" width="30px"/></span>
                             </th>
                             <tbody>
-                                <UserItem />
+                            {
+                                this.state.userItem.map(item =>
+                                    <UserItem 
+                                        itemName = {item.itemName}
+                                        itemDesc = {item.itemDesc}
+                                        file = {item.file}
+                                    />)
+                            }
                             </tbody>
                             
                         </table>
