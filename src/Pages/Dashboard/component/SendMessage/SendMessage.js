@@ -33,12 +33,14 @@ export default class AddItem extends React.Component{
                 email: this.state.email,
                 content: this.state.content,
                 uid_sender : cookie.load('NABS').uid,
-                itemId : this.props.itemId
+                itemId : this.props.itemId,
+                itemName : this.props.itemName
             })
         })
         .then(response => response.json())
         .then(data => {
-
+            console.log(data)
+            window.alert("Message Sent!")
         })
     }
 
