@@ -85,8 +85,8 @@ export default class AddItem extends React.Component{
                         </div>
                         <div id="add_item_input">
                             <h1>Fill Item details</h1>
-                            <input onChange={this.handleChange("itemName")} type="text" placeholder="Item Name"/>
-                            <input onChange={this.handleChange("location")} type="text"  placeholder="Location"/>
+                            <input id="add_item_field" onChange={this.handleChange("itemName")} type="text" placeholder="Item Name"/>
+                            <input id="add_item_field" onChange={this.handleChange("location")} type="text"  placeholder="Location"/>
                             <textarea onChange={this.handleChange("itemDesc")} id="add_item_description"></textarea>
                         </div>
                     </div>

@@ -59,6 +59,7 @@
 
 #add_item_input{
     margin-left: 5vw;
+    margin-top: -3vh;
 }
 
 #add_item_description{
@@ -77,4 +78,15 @@
 
 #add_button{
     margin-left: 80%;
+}
+
+#add_item_field{
+    border-radius: 4px;
+    font-size: medium;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    background-color: rgb(241, 240, 240);
+    color: rgb(255, 249, 240);
+    margin-bottom: 3px;
 }

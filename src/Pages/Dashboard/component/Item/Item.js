@@ -18,7 +18,7 @@ class Item extends React.Component {
         return(
             <div id= "item">
                 {this.state.showSendMessage && <SendMessage itemId = {this.props.itemId} itemName={this.props.itemName} closeModal={()=>this.setState({showSendMessage : false})} />}
-                <h4 id="name">Yuvraj</h4>
+                <h4 id="name">{this.props.username}</h4>
                 <img src={"data:image/png;base64, " + this.props.file} id="img_placeholder"></img>
                 <div id="item_content">
                     <h1 id="item_title">{this.props.itemName}</h1>

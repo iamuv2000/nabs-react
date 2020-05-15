@@ -27,7 +27,8 @@ class Dashboard extends React.Component{
                 itemDesc: "",
                 itemId: "",
                 itemName: "",
-                location: ""
+                location: "",
+                username: ""
             }],
             userItem: [{
                 file: "",
@@ -91,12 +92,17 @@ class Dashboard extends React.Component{
                 <div id= "content_screen">
                     <div id = "item_list">
                         {
+                            this.state.items[0].itemDesc == ""
+                            ?
+                            <h4>Loading...</h4>
+                            :
                             this.state.items.map(item =>
                                 <Item 
                                     itemId = {item.itemId}
                                     itemName = {item.itemName}
                                     itemDesc = {item.itemDesc}
                                     file = {item.file}
+                                    username = {item.username}
                                 />)
                         }
                     </div>
@@ -107,6 +113,10 @@ class Dashboard extends React.Component{
                             </th>
                             <tbody>
                             {
+                                this.state.userItem[0].itemDesc == ""
+                                ?
+                                <h4>Loading...</h4>
+                                :
                                 this.state.userItem.map(item =>
                                     <UserItem 
                                         itemName = {item.itemName}
