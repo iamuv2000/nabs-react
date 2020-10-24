@@ -21,7 +21,8 @@ class Dashboard extends React.Component{
         super();
         this.state={
             showAddItem: false,
-            showMessages: false,
+			showMessages: false,
+			search:null,
             items: [{
                 file: "",
                 itemDesc: "",
@@ -38,8 +39,13 @@ class Dashboard extends React.Component{
                 location: ""  
             }]
         };
-    }
-    
+	}
+
+    searchSpace=(event)=>{
+		let keyword = event.target.value;
+		this.setState({search:keyword})
+	}
+
     componentWillMount() {
         fetch(`${process.env.REACT_APP_URL}/user/allItems`,{
             method: "post",
@@ -76,7 +82,13 @@ class Dashboard extends React.Component{
 
 
     render(){
-
+		const el = this.state.items.filter((data)=>{
+			if(this.state.search == null)
+				return data
+			else if(data.itemName.toLowerCase().includes(this.state.search.toLowerCase()) || data.itemName.toLowerCase().includes(this.state.search.toLowerCase())){
+				return data
+			}
+		  })
 
         return(
             <div id="dashboard_page">
@@ -88,7 +100,7 @@ class Dashboard extends React.Component{
                     <button id="location_button"><img src = {LocationIcon} alt="Location icon" height="20px" width="20px"/> <span id="location_label">Location</span></button>
                     <button id="logout_button">Log out</button>
                 </div>
-                
+				<input type="text" placeholder="Enter item to be searched" onChange={(e)=>this.searchSpace(e)} id="search_button"/>
                 <div id= "content_screen">
                     <div id = "item_list">
                         {
@@ -96,7 +108,7 @@ class Dashboard extends React.Component{
                             ?
                             <h4>Loading...</h4>
                             :
-                            this.state.items.map(item =>
+                            el.map(item =>
                                 <Item 
                                     itemId = {item.itemId}
                                     itemName = {item.itemName}
