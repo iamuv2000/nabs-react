@@ -29,7 +29,9 @@ class Dashboard extends React.Component{
                 itemId: "",
                 itemName: "",
                 location: "",
-                username: ""
+				username: "",
+				expectedPrice: "",
+				category: ""
             }],
             userItem: [{
                 file: "",
@@ -85,7 +87,7 @@ class Dashboard extends React.Component{
 		const el = this.state.items.filter((data)=>{
 			if(this.state.search == null)
 				return data
-			else if(data.itemName.toLowerCase().includes(this.state.search.toLowerCase()) || data.itemName.toLowerCase().includes(this.state.search.toLowerCase())){
+			else if(data.itemName.toLowerCase().includes(this.state.search.toLowerCase()) || data.itemName.toLowerCase().includes(this.state.search.toLowerCase() ) || data.category.toLowerCase().includes(this.state.search.toLowerCase() )){
 				return data
 			}
 		  })
@@ -114,7 +116,8 @@ class Dashboard extends React.Component{
                                     itemName = {item.itemName}
                                     itemDesc = {item.itemDesc}
                                     file = {item.file}
-                                    username = {item.username}
+									username = {item.username}
+									expectedPrice = {item.expectedPrice}
                                 />)
                         }
                     </div>

@@ -15,7 +15,9 @@ export default class AddItem extends React.Component{
             imagePreviewUrl: false,
             itemName: '',
             location: '',
-            itemDesc: ''
+			itemDesc: '',
+			expectedPrice: '',
+			category: ''
         };
     }
 
@@ -27,7 +29,9 @@ export default class AddItem extends React.Component{
         formData.append('img_file', this.state.file,this.state.file.name);
         formData.append('itemName',this.state.itemName)   
         formData.append('location',this.state.location)   
-        formData.append('itemDesc',this.state.itemDesc)   
+		formData.append('itemDesc',this.state.itemDesc)   
+		formData.append('expectedPrice',this.state.expectedPrice)   
+		formData.append('category',this.state.category)   
 
         fetch(`${process.env.REACT_APP_URL}/item/create`,{
             method: "post",
@@ -87,6 +91,9 @@ export default class AddItem extends React.Component{
                             <h1>Fill Item details</h1>
                             <input id="add_item_field" onChange={this.handleChange("itemName")} type="text" placeholder="Item Name"/>
                             <input id="add_item_field" onChange={this.handleChange("location")} type="text"  placeholder="Location"/>
+							<br/>
+							<input id="add_item_field" onChange={this.handleChange("expectedPrice")} type="text" placeholder="Expected Price"/>
+							<input id="add_item_field" onChange={this.handleChange("category")} type="text" placeholder="Categories (Comma seperated)"/>
                             <textarea onChange={this.handleChange("itemDesc")} id="add_item_description"></textarea>
                         </div>
                     </div>

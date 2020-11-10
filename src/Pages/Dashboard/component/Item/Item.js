@@ -23,6 +23,8 @@ class Item extends React.Component {
                 <div id="item_content">
                     <h1 id="item_title">{this.props.itemName}</h1>
                     {this.props.itemDesc}
+					<br/>
+					₹ {this.props.expectedPrice}
                 </div>
                 <div id="interact_icons_container">
                     <span id="interact_icons"><img onClick = {()=>this.setState({showSendMessage: true})} src={Chat} alt="Like" height="40px" width="40px"/> </span>
